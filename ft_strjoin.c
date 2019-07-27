@@ -1,18 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putchar.c                                       :+:      :+:    :+:   */
+/*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wkoelpin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/26 16:49:29 by wkoelpin          #+#    #+#             */
-/*   Updated: 2018/12/27 15:09:35 by wkoelpin         ###   ########.fr       */
+/*   Created: 2018/12/13 12:45:44 by wkoelpin          #+#    #+#             */
+/*   Updated: 2018/12/27 15:15:30 by wkoelpin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_putchar(int c)
+char	*ft_strjoin(char const *s1, char const *s2)
 {
-	return (write(1, &c, 1));
+	char	*fresh;
+	int		l;
+
+	if (!(s1 && s2))
+		return (NULL);
+	l = (ft_strlen(s1) + ft_strlen(s2));
+	fresh = ((char*)malloc(sizeof(char) * (l + 1)));
+	if (fresh == NULL)
+		return (NULL);
+	ft_strcpy(fresh, s1);
+	ft_strcat(fresh, s2);
+	return (fresh);
 }

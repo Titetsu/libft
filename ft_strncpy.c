@@ -6,13 +6,13 @@
 /*   By: wkoelpin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/30 14:31:24 by wkoelpin          #+#    #+#             */
-/*   Updated: 2018/12/05 14:40:21 by wkoelpin         ###   ########.fr       */
+/*   Updated: 2018/12/29 14:35:06 by wkoelpin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strncpy(char *dst, const char *src, size_t len)
+char	*ft_strncpy(char *dst, char const *src, size_t len)
 {
 	size_t	i;
 	char	*sr;
@@ -21,9 +21,13 @@ char	*ft_strncpy(char *dst, const char *src, size_t len)
 	i = 0;
 	while (sr[i] != '\0' && (i < len))
 	{
-		dst[i] = src[i];
+		dst[i] = sr[i];
 		i++;
 	}
-	dst[i] = '\0';
+	while (i < len)
+	{
+		dst[i] = '\0';
+		i++;
+	}
 	return (dst);
 }

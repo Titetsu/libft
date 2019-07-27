@@ -6,30 +6,37 @@
 /*   By: wkoelpin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/03 15:27:59 by wkoelpin          #+#    #+#             */
-/*   Updated: 2018/12/05 14:34:09 by wkoelpin         ###   ########.fr       */
+/*   Updated: 2018/12/27 15:21:02 by wkoelpin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char	*ft_strstr(const char *string1, const char *string2)
+#include "libft.h"
+
+char	*ft_strstr(const char *str, const char *str2)
 {
-	int		i;
-	int		j;
-	char	*str1;
-	char	*str2;
+	size_t i;
+	size_t j;
+	size_t k;
 
 	i = 0;
-	str1 = (char*)string1;
-	str2 = (char*)string2;
-	while (str1[i] != '\0')
+	j = 0;
+	if (str2 == str || str2[0] == '\0')
+		return ((char*)str);
+	while (str[j])
 	{
-		j = 0;
-		while (str2[j] == str1[i + j])
+		if (str[j] == str2[i])
 		{
-			if (str2[j + 1] == '\0')
-				return (str1 + i);
-			j++;
+			k = j;
+			while (str2[i] == str[k])
+			{
+				i++;
+				k++;
+				if (i == ft_strlen(str2))
+					return ((char*)(str + k - ft_strlen(str2)));
+			}
 		}
-		i++;
+		i = 0;
+		j++;
 	}
-	return (0);
+	return (NULL);
 }

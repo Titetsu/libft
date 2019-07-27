@@ -6,9 +6,11 @@
 /*   By: wkoelpin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/04 12:19:58 by wkoelpin          #+#    #+#             */
-/*   Updated: 2018/12/04 14:22:21 by wkoelpin         ###   ########.fr       */
+/*   Updated: 2018/12/27 14:48:31 by wkoelpin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "libft.h"
 
 int		ft_isalpha(int chara)
 {

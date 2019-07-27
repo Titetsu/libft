@@ -6,20 +6,23 @@
 /*   By: wkoelpin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/26 16:52:07 by wkoelpin          #+#    #+#             */
-/*   Updated: 2018/12/05 14:13:39 by wkoelpin         ###   ########.fr       */
+/*   Updated: 2018/12/27 15:10:39 by wkoelpin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putstr(char *str)
+void	ft_putstr(char const *s)
 {
-	int i;
+	size_t	i;
 
 	i = 0;
-	while (str[i])
+	if (s)
 	{
-		ft_putchar(str[i]);
-		i++;
+		while (s[i])
+		{
+			ft_putchar((char)s[i]);
+			i++;
+		}
 	}
 }

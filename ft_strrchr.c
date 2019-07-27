@@ -6,25 +6,19 @@
 /*   By: wkoelpin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/03 15:18:41 by wkoelpin          #+#    #+#             */
-/*   Updated: 2018/12/05 14:39:57 by wkoelpin         ###   ########.fr       */
+/*   Updated: 2018/12/27 15:20:40 by wkoelpin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strrchr(const char *string, int sym)
+char	*ft_strrchr(const char *str, int sym)
 {
-	int		i;
-	char	*str;
-
-	i = 0;
-	str = (char*)string;
-	while (str[i] != '\0')
-		i++;
-	while (str[i] != sym || i != 0)
-		i--;
-	if (i == 0 && str[i] != sym)
+	if (ft_strchr(str, sym) == NULL)
 		return (NULL);
-	else
-		return (str + i);
+	while (*str)
+		str++;
+	while (*str != sym)
+		str--;
+	return ((char*)str);
 }

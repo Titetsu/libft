@@ -6,24 +6,24 @@
 /*   By: wkoelpin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/27 20:25:35 by wkoelpin          #+#    #+#             */
-/*   Updated: 2018/12/05 14:42:45 by wkoelpin         ###   ########.fr       */
+/*   Updated: 2018/12/27 15:09:19 by wkoelpin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string.h>
+#include "libft.h"
 
-void	*ft_memset(void *des, int c, size_t n)
+void	*ft_memset(void *b, int c, size_t len)
 {
-	int		i;
-	char	*b;
+	unsigned char	*dst;
 
-	n = 0;
-	i = 0;
-	b = des;
-	while (b)
+	if (len == 0)
+		return (b);
+	dst = (unsigned char*)b;
+	while (len--)
 	{
-		b[i] = c;
-		c++;
+		*dst = (unsigned char)c;
+		if (len)
+			dst++;
 	}
 	return (b);
 }
